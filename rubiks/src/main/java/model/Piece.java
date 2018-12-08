@@ -80,20 +80,33 @@ public class Piece {
 			
 			break;
 		case COUNTERCLOCKWISE:
-			temp = getU();
-			setU(getB());
-			setB(getD());
-			setD(getF());
-			setF(temp);			
+//			temp = getU();
+//			setU(getB());
+//			setB(getD());
+//			setD(getF());
+//			setF(temp);	
+			for (int i = 0; i < 3; i++) {
+				rotateX(CLOCKWISE);
+			}
 			break;
+			
 		}
 	}
 	
 	public void rotateY(int direction) {
 		switch (direction) {
 		case CLOCKWISE:
+			int temp = getU();
+			setU(getL());
+			setL(getD());
+			setD(getR());
+			setR(temp);
+			
 			break;
 		case COUNTERCLOCKWISE:
+			for (int i = 0; i < 3; i++) {
+				rotateY(CLOCKWISE);
+			}	
 			break;
 		}
 	}
@@ -101,8 +114,16 @@ public class Piece {
 	public void rotateZ(int direction) {
 		switch (direction) {
 		case CLOCKWISE:
+			int temp = getF();
+			setF(getR());
+			setR(getB());
+			setB(getL());
+			setL(temp);
 			break;
 		case COUNTERCLOCKWISE:
+			for (int i = 0; i < 3; i++) {
+				rotateZ(CLOCKWISE);
+			}
 			break;
 		}
 	}
