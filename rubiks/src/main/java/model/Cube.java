@@ -1,5 +1,7 @@
 package model;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Cube {
 
 	public static final int F = 0;
@@ -8,6 +10,8 @@ public class Cube {
 	public static final int L = 3;
 	public static final int B = 4;
 	public static final int D = 5;
+	
+	public static final int SHUFFLE_MOVES = 20;
 
 	private Piece[][][] cube;
 
@@ -71,8 +75,44 @@ public class Cube {
 		return result;
 	}
 
-	public void shuffle() {
+	public String shuffle() {
+		StringBuilder shuffle = new StringBuilder();
+		String[] moves = new String[] { "F", "R", "U", "L", "B", "D" };
+		String[] type = new String[] { "", "2", "'" };
+		for (int i = 0; i < SHUFFLE_MOVES; i++) {
+			int rand = ThreadLocalRandom.current().nextInt(0, 6);
+			shuffle.append(moves[rand]);
+			int times = ThreadLocalRandom.current().nextInt(0, 3);
+			shuffle.append(type[times] + " ");
+			for (int j = 0; j < times+1; j++) {
+				switch (rand) {
+				case F:
+					f();
+					break;
 
+				case R:
+					r();
+					break;
+
+				case U:
+					u();
+					break;
+					
+				case L:
+					l();
+					break;
+
+				case B:
+					b();
+					break;
+
+				case D:
+					d();
+					break;
+				}
+			}
+		}
+		return shuffle.toString().trim();
 	}
 
 	// Moves
@@ -139,85 +179,82 @@ public class Cube {
 	// privateMoves
 
 	/*
-	 * 0: L
-	 * 2: R
+	 * 0: L 2: R
 	 */
 	private void rotateX(int face) {
 		Piece[][] temp = new Piece[3][3];
 		for (int i = 0; i < cube.length; i++) {
 			for (int j = 0; j < cube.length; j++) {
-				if(face == 2) {
+				if (face == 2) {
 					cube[i][face][j].rotateX(Piece.CLOCKWISE);
-					temp[j][2-i] = cube[i][face][j];
+					temp[j][2 - i] = cube[i][face][j];
 				} else {
-					cube[i][face][2-j].rotateX(Piece.COUNTERCLOCKWISE);
-					temp[j][2-i] = cube[i][face][2-j];
-				}				
+					cube[i][face][2 - j].rotateX(Piece.COUNTERCLOCKWISE);
+					temp[j][2 - i] = cube[i][face][2 - j];
+				}
 			}
 		}
 		for (int i = 0; i < temp.length; i++) {
 			for (int j = 0; j < temp.length; j++) {
-				if(face == 2) {
+				if (face == 2) {
 					cube[i][face][j] = temp[i][j];
 				} else {
-					cube[i][face][2-j] = temp[i][j];
-				}	
+					cube[i][face][2 - j] = temp[i][j];
+				}
 			}
 		}
 	}
 
 	/*
-	 * 0: F
-	 * 2: B
+	 * 0: F 2: B
 	 */
 	private void rotateY(int face) {
 		Piece[][] temp = new Piece[3][3];
 		for (int i = 0; i < cube.length; i++) {
 			for (int j = 0; j < cube.length; j++) {
-				if(face == 0) {
+				if (face == 0) {
 					cube[i][j][face].rotateY(Piece.CLOCKWISE);
-					temp[j][2-i] = cube[i][j][face];
+					temp[j][2 - i] = cube[i][j][face];
 				} else {
-					cube[i][2-j][face].rotateY(Piece.COUNTERCLOCKWISE);
-					temp[j][2-i] = cube[i][2-j][face];
-				}				
+					cube[i][2 - j][face].rotateY(Piece.COUNTERCLOCKWISE);
+					temp[j][2 - i] = cube[i][2 - j][face];
+				}
 			}
 		}
 		for (int i = 0; i < temp.length; i++) {
 			for (int j = 0; j < temp.length; j++) {
-				if(face == 0) {
+				if (face == 0) {
 					cube[i][j][face] = temp[i][j];
 				} else {
-					cube[i][2-j][face] = temp[i][j];
-				}	
+					cube[i][2 - j][face] = temp[i][j];
+				}
 			}
 		}
 	}
 
 	/*
-	 * 0: U
-	 * 2: D
+	 * 0: U 2: D
 	 */
 	private void rotateZ(int face) {
 		Piece[][] temp = new Piece[3][3];
 		for (int i = 0; i < cube.length; i++) {
 			for (int j = 0; j < cube.length; j++) {
-				if(face == 0) {
+				if (face == 0) {
 					cube[face][j][2 - i].rotateZ(Piece.CLOCKWISE);
-					temp[j][2-i] = cube[0][j][2 - i];
+					temp[j][2 - i] = cube[0][j][2 - i];
 				} else {
 					cube[face][j][i].rotateZ(Piece.COUNTERCLOCKWISE);
-					temp[j][2-i] = cube[face][j][i];
-				}				
+					temp[j][2 - i] = cube[face][j][i];
+				}
 			}
 		}
 		for (int i = 0; i < temp.length; i++) {
 			for (int j = 0; j < temp.length; j++) {
-				if(face == 0) {
+				if (face == 0) {
 					cube[face][j][2 - i] = temp[i][j];
 				} else {
 					cube[face][j][i] = temp[i][j];
-				}	
+				}
 			}
 		}
 	}

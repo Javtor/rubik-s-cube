@@ -1,6 +1,8 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextArea;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -60,6 +62,12 @@ public class MainView {
 
 	@FXML
 	private JFXButton btnShuffle;
+
+	@FXML
+	private JFXButton btnReset;
+
+	@FXML
+	private JFXTextArea txtMoves;
 
 	private Cube cube;
 
@@ -124,8 +132,18 @@ public class MainView {
 	}
 
 	@FXML
-	void shuffle(ActionEvent event) {
+	void reset(ActionEvent event) {
+		txtMoves.setText("");
+		this.cube = new Cube();
+		drawCube();
+	}
 
+	@FXML
+	void shuffle(ActionEvent event) {
+		reset(null);
+		String text = cube.shuffle();
+		txtMoves.setText(text);
+		drawCube();
 	}
 
 	@FXML
@@ -143,6 +161,7 @@ public class MainView {
 	@FXML
 	void initialize() {
 		this.cube = new Cube();
+		txtMoves.setWrapText(true);
 		drawCube();
 
 	}
