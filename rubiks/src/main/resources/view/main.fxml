@@ -51,6 +51,6 @@
       </HBox>
    </bottom>
    <top>
-      <JFXTextArea prefHeight="62.0" prefWidth="640.0" BorderPane.alignment="CENTER" />
+      <JFXTextArea fx:id="txtMoves" editable="false" prefHeight="62.0" prefWidth="640.0" BorderPane.alignment="CENTER" />
    </top>
 </BorderPane>

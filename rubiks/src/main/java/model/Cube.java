@@ -80,27 +80,33 @@ public class Cube {
 
 	// Moves
 	public void b() {
-
+		rotateY(2);
 	}
 
 	public void bPrime() {
-
+		for (int i = 0; i < 3; i++) {
+			rotateY(2);
+		}
 	}
 
 	public void d() {
-
+		rotateZ(2);
 	}
 
 	public void dPrime() {
-
+		for (int i = 0; i < 3; i++) {
+			rotateZ(2);
+		}
 	}
 
 	public void f() {
-
+		rotateY(0);
 	}
 
 	public void fPrime() {
-
+		for (int i = 0; i < 3; i++) {
+			rotateY(0);
+		}
 	}
 
 	public void l() {
@@ -124,11 +130,13 @@ public class Cube {
 	}
 
 	public void u() {
-
+		rotateZ(0);
 	}
 
 	public void uPrime() {
-
+		for (int i = 0; i < 3; i++) {
+			rotateZ(0);
+		}
 	}
 
 	// privateMoves
@@ -166,7 +174,27 @@ public class Cube {
 	 * 2: B
 	 */
 	private void rotateY(int face) {
-
+		Piece[][] temp = new Piece[3][3];
+		for (int i = 0; i < cube.length; i++) {
+			for (int j = 0; j < cube.length; j++) {
+				if(face == 0) {
+					cube[i][j][face].rotateY(Piece.CLOCKWISE);
+					temp[j][2-i] = cube[i][j][face];
+				} else {
+					cube[i][2-j][face].rotateY(Piece.COUNTERCLOCKWISE);
+					temp[j][2-i] = cube[i][2-j][face];
+				}				
+			}
+		}
+		for (int i = 0; i < temp.length; i++) {
+			for (int j = 0; j < temp.length; j++) {
+				if(face == 0) {
+					cube[i][j][face] = temp[i][j];
+				} else {
+					cube[i][2-j][face] = temp[i][j];
+				}	
+			}
+		}
 	}
 
 	/*
@@ -174,6 +202,6 @@ public class Cube {
 	 * 2: D
 	 */
 	private void rotateZ(int face) {
-
+		
 	}
 }
