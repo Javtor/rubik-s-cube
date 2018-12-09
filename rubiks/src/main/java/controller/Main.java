@@ -18,6 +18,7 @@ public class Main extends Application{
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Rubik's Cube");
+		primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/img/icon-rubik.png")));
 		MainView contr = loader.getController();
 		primaryStage.show();
 		

@@ -1,8 +1,5 @@
 package model;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-
 public class Cube {
 
 	public static final int F = 0;
@@ -202,6 +199,26 @@ public class Cube {
 	 * 2: D
 	 */
 	private void rotateZ(int face) {
-		
+		Piece[][] temp = new Piece[3][3];
+		for (int i = 0; i < cube.length; i++) {
+			for (int j = 0; j < cube.length; j++) {
+				if(face == 0) {
+					cube[face][j][2 - i].rotateZ(Piece.CLOCKWISE);
+					temp[j][2-i] = cube[0][j][2 - i];
+				} else {
+					cube[face][j][i].rotateZ(Piece.COUNTERCLOCKWISE);
+					temp[j][2-i] = cube[face][j][i];
+				}				
+			}
+		}
+		for (int i = 0; i < temp.length; i++) {
+			for (int j = 0; j < temp.length; j++) {
+				if(face == 0) {
+					cube[face][j][2 - i] = temp[i][j];
+				} else {
+					cube[face][j][i] = temp[i][j];
+				}	
+			}
+		}
 	}
 }
