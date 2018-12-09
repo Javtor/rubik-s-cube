@@ -1,5 +1,8 @@
 package model;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
 public class Cube {
 
 	public static final int F = 0;
@@ -42,23 +45,24 @@ public class Cube {
 		case U:
 			for (int i = 0; i < result.length; i++) {
 				for (int j = 0; j < result.length; j++) {
-					result[i][j] = cube[0][j][2-i].getU();
+					result[i][j] = cube[0][j][2 - i].getU();
 				}
 			}
 			break;
 		case L:
 			for (int i = 0; i < result.length; i++) {
 				for (int j = 0; j < result.length; j++) {
-					result[i][j] = cube[i][0][2-j].getL();
+					result[i][j] = cube[i][0][2 - j].getL();
 				}
 			}
 			break;
-		case B:for (int i = 0; i < result.length; i++) {
-			for (int j = 0; j < result.length; j++) {
-				result[i][j] = cube[i][2-j][2].getB();
+		case B:
+			for (int i = 0; i < result.length; i++) {
+				for (int j = 0; j < result.length; j++) {
+					result[i][j] = cube[i][2 - j][2].getB();
+				}
 			}
-		}
-		break;
+			break;
 		case D:
 			for (int i = 0; i < result.length; i++) {
 				for (int j = 0; j < result.length; j++) {
@@ -70,4 +74,106 @@ public class Cube {
 		return result;
 	}
 
+	public void shuffle() {
+
+	}
+
+	// Moves
+	public void b() {
+
+	}
+
+	public void bPrime() {
+
+	}
+
+	public void d() {
+
+	}
+
+	public void dPrime() {
+
+	}
+
+	public void f() {
+
+	}
+
+	public void fPrime() {
+
+	}
+
+	public void l() {
+		rotateX(0);
+	}
+
+	public void lPrime() {
+		for (int i = 0; i < 3; i++) {
+			rotateX(0);
+		}
+	}
+
+	public void r() {
+		rotateX(2);
+	}
+
+	public void rPrime() {
+		for (int i = 0; i < 3; i++) {
+			rotateX(2);
+		}
+	}
+
+	public void u() {
+
+	}
+
+	public void uPrime() {
+
+	}
+
+	// privateMoves
+
+	/*
+	 * 0: L
+	 * 2: R
+	 */
+	private void rotateX(int face) {
+		Piece[][] temp = new Piece[3][3];
+		for (int i = 0; i < cube.length; i++) {
+			for (int j = 0; j < cube.length; j++) {
+				if(face == 2) {
+					cube[i][face][j].rotateX(Piece.CLOCKWISE);
+					temp[j][2-i] = cube[i][face][j];
+				} else {
+					cube[i][face][2-j].rotateX(Piece.COUNTERCLOCKWISE);
+					temp[j][2-i] = cube[i][face][2-j];
+				}				
+			}
+		}
+		for (int i = 0; i < temp.length; i++) {
+			for (int j = 0; j < temp.length; j++) {
+				if(face == 2) {
+					cube[i][face][j] = temp[i][j];
+				} else {
+					cube[i][face][2-j] = temp[i][j];
+				}	
+			}
+		}
+	}
+
+	/*
+	 * 0: F
+	 * 2: B
+	 */
+	private void rotateY(int face) {
+
+	}
+
+	/*
+	 * 0: U
+	 * 2: D
+	 */
+	private void rotateZ(int face) {
+
+	}
 }

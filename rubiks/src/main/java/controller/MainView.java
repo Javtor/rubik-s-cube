@@ -65,52 +65,62 @@ public class MainView {
 
 	@FXML
 	void b(ActionEvent event) {
-
+		cube.b();
+		drawCube();
 	}
 
 	@FXML
 	void bPrime(ActionEvent event) {
-
+		cube.bPrime();
+		drawCube();
 	}
 
 	@FXML
 	void d(ActionEvent event) {
-
+		cube.d();
+		drawCube();
 	}
 
 	@FXML
 	void dPrime(ActionEvent event) {
-
+		cube.dPrime();
+		drawCube();
 	}
 
 	@FXML
 	void f(ActionEvent event) {
-
+		cube.f();
+		drawCube();
 	}
 
 	@FXML
 	void fPrime(ActionEvent event) {
-
+		cube.fPrime();
+		drawCube();
 	}
 
 	@FXML
 	void l(ActionEvent event) {
-
+		cube.l();
+		drawCube();
 	}
 
 	@FXML
 	void lPrime(ActionEvent event) {
-
+		cube.lPrime();
+		drawCube();
 	}
 
 	@FXML
 	void r(ActionEvent event) {
-
+		cube.r();
+		drawCube();
 	}
 
 	@FXML
 	void rPrime(ActionEvent event) {
-
+		cube.rPrime();
+		drawCube();
 	}
 
 	@FXML
@@ -120,12 +130,14 @@ public class MainView {
 
 	@FXML
 	void u(ActionEvent event) {
-
+		cube.u();
+		drawCube();
 	}
 
 	@FXML
 	void uPrime(ActionEvent event) {
-
+		cube.uPrime();
+		drawCube();
 	}
 
 	@FXML
