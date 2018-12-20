@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainView">
    <center>
       <Canvas fx:id="canvas" height="300.0" width="400.0" BorderPane.alignment="CENTER" />
@@ -16,15 +17,10 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane alignment="CENTER" prefHeight="100.0" prefWidth="401.0">
+            <GridPane alignment="CENTER" prefHeight="100.0" prefWidth="318.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -48,18 +44,6 @@
                   <JFXButton fx:id="btnBPrime" onAction="#bPrime" text="B'" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                   <JFXButton fx:id="btnD" onAction="#d" text="D" GridPane.columnIndex="5" />
                   <JFXButton fx:id="btnDPrime" onAction="#dPrime" text="D'" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                  <JFXButton fx:id="btnM" onAction="#m" text="M" GridPane.columnIndex="6" />
-                  <JFXButton fx:id="btnMPrime" onAction="#mPrime" text="M'" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                  <JFXButton fx:id="btnE" onAction="#e" text="E" GridPane.columnIndex="7" />
-                  <JFXButton fx:id="btnEPrime" onAction="#ePrime" text="E'" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-                  <JFXButton fx:id="btnS" onAction="#s" text="S" GridPane.columnIndex="8" />
-                  <JFXButton fx:id="btnSPrime" onAction="#sPrime" text="S'" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-                  <JFXButton fx:id="btnX" onAction="#x" text="X" GridPane.columnIndex="9" />
-                  <JFXButton fx:id="btnXPrime" onAction="#xPrime" text="X'" GridPane.columnIndex="9" GridPane.rowIndex="1" />
-                  <JFXButton fx:id="btnY" onAction="#y" text="Y" GridPane.columnIndex="10" />
-                  <JFXButton fx:id="btnYPrime" onAction="#yPrime" text="Y'" GridPane.columnIndex="10" GridPane.rowIndex="1" />
-                  <JFXButton fx:id="btnZ" onAction="#z" text="Z" GridPane.columnIndex="11" />
-                  <JFXButton fx:id="btnZPrime" onAction="#zPrime" text="Z'" GridPane.columnIndex="11" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <JFXButton fx:id="btnShuffle" buttonType="RAISED" onAction="#shuffle" prefHeight="50.0" prefWidth="82.0" text="SHUFFLE" />

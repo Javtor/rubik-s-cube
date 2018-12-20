@@ -72,6 +72,42 @@ public class MainView {
 	private Cube cube;
 
 	@FXML
+	private JFXButton btnM;
+
+	@FXML
+	private JFXButton btnMPrime;
+
+	@FXML
+	private JFXButton btnE;
+
+	@FXML
+	private JFXButton btnEPrime;
+
+	@FXML
+	private JFXButton btnS;
+
+	@FXML
+	private JFXButton btnSPrime;
+
+	@FXML
+	private JFXButton btnX;
+
+	@FXML
+	private JFXButton btnXPrime;
+
+	@FXML
+	private JFXButton btnY;
+
+	@FXML
+	private JFXButton btnYPrime;
+
+	@FXML
+	private JFXButton btnZ;
+
+	@FXML
+	private JFXButton btnZPrime;
+
+	@FXML
 	void b(ActionEvent event) {
 		cube.b();
 		drawCube();
@@ -156,6 +192,66 @@ public class MainView {
 	void uPrime(ActionEvent event) {
 		cube.uPrime();
 		drawCube();
+	}
+	
+	@FXML
+	void m(ActionEvent event) {
+
+	}
+
+	@FXML
+	void mPrime(ActionEvent event) {
+
+	}
+	
+	@FXML
+	void e(ActionEvent event) {
+
+	}
+
+	@FXML
+	void ePrime(ActionEvent event) {
+
+	}
+
+	@FXML
+	void s(ActionEvent event) {
+
+	}
+
+	@FXML
+	void sPrime(ActionEvent event) {
+
+	}
+
+	@FXML
+	void x(ActionEvent event) {
+
+	}
+
+	@FXML
+	void xPrime(ActionEvent event) {
+
+	}
+
+	@FXML
+	void y(ActionEvent event) {
+
+	}
+
+	@FXML
+	void yPrime(ActionEvent event) {
+
+	}
+
+	@FXML
+	void z(ActionEvent event) {
+
+	}
+
+	@FXML
+	void zPrime(ActionEvent event) {
+
 	}
 
 	@FXML
