@@ -64,6 +64,7 @@
             </GridPane>
             <JFXButton fx:id="btnShuffle" buttonType="RAISED" onAction="#shuffle" prefHeight="50.0" prefWidth="82.0" text="SHUFFLE" />
             <JFXButton fx:id="btnReset" onAction="#reset" text="RESET" />
+            <JFXButton fx:id="btnSolve" onAction="#solve" text="SOLVE" />
          </children>
       </HBox>
    </bottom>

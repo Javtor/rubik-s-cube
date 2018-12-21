@@ -2,6 +2,9 @@ package model;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
 public class Cube {
 
 	public static final int F = 0;
@@ -10,7 +13,7 @@ public class Cube {
 	public static final int L = 3;
 	public static final int B = 4;
 	public static final int D = 5;
-	
+
 	public static final int SHUFFLE_MOVES = 20;
 
 	private Piece[][][] cube;
@@ -84,7 +87,7 @@ public class Cube {
 			shuffle.append(moves[rand]);
 			int times = ThreadLocalRandom.current().nextInt(0, 3);
 			shuffle.append(type[times] + " ");
-			for (int j = 0; j < times+1; j++) {
+			for (int j = 0; j < times + 1; j++) {
 				switch (rand) {
 				case F:
 					f();
@@ -97,7 +100,7 @@ public class Cube {
 				case U:
 					u();
 					break;
-					
+
 				case L:
 					l();
 					break;
@@ -173,6 +176,72 @@ public class Cube {
 	public void uPrime() {
 		for (int i = 0; i < 3; i++) {
 			rotateZ(0);
+		}
+	}
+
+	public void m() {
+		rotateX(1);
+	}
+
+	public void mPrime() {
+		for (int i = 0; i < 3; i++) {
+			m();
+		}
+	}
+
+	public void e() {
+		rotateZ(1);
+	}
+
+	public void ePrime() {
+		for (int i = 0; i < 3; i++) {
+			e();
+		}
+	}
+
+	public void s() {
+		for (int i = 0; i < 3; i++) {
+			sPrime();
+		}
+	}
+
+	public void sPrime() {
+		rotateY(1);
+	}
+
+	public void x() {
+		r();
+		mPrime();
+		lPrime();
+	}
+
+	public void xPrime() {
+		for (int i = 0; i < 3; i++) {
+			x();
+		}
+	}
+
+	public void y() {
+		u();
+		ePrime();
+		dPrime();
+	}
+
+	public void yPrime() {
+		for (int i = 0; i < 3; i++) {
+			y();
+		}
+	}
+
+	public void z() {
+		f();
+		s();
+		bPrime();
+	}
+
+	public void zPrime() {
+		for (int i = 0; i < 3; i++) {
+			z();
 		}
 	}
 
@@ -257,5 +326,10 @@ public class Cube {
 				}
 			}
 		}
+	}
+
+	public void solve() {
+		// TODO Auto-generated method stub
+
 	}
 }

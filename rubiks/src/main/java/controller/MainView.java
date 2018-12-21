@@ -65,6 +65,9 @@ public class MainView {
 
 	@FXML
 	private JFXButton btnReset;
+	
+	@FXML
+	private JFXButton btnSolve;
 
 	@FXML
 	private JFXTextArea txtMoves;
@@ -196,62 +199,80 @@ public class MainView {
 	
 	@FXML
 	void m(ActionEvent event) {
-
+		cube.m();
+		drawCube();
 	}
 
 	@FXML
 	void mPrime(ActionEvent event) {
-
+		cube.mPrime();
+		drawCube();
 	}
 	
 	@FXML
 	void e(ActionEvent event) {
-
+		cube.e();
+		drawCube();
 	}
 
 	@FXML
 	void ePrime(ActionEvent event) {
-
+		cube.ePrime();
+		drawCube();
 	}
 
 	@FXML
 	void s(ActionEvent event) {
-
+		cube.s();
+		drawCube();
 	}
 
 	@FXML
 	void sPrime(ActionEvent event) {
-
+		cube.sPrime();
+		drawCube();
 	}
 
 	@FXML
 	void x(ActionEvent event) {
-
+		cube.x();
+		drawCube();
 	}
 
 	@FXML
 	void xPrime(ActionEvent event) {
-
+		cube.xPrime();
+		drawCube();
 	}
 
 	@FXML
 	void y(ActionEvent event) {
-
+		cube.y();
+		drawCube();
 	}
 
 	@FXML
 	void yPrime(ActionEvent event) {
-
+		cube.yPrime();
+		drawCube();
 	}
 
 	@FXML
 	void z(ActionEvent event) {
-
+		cube.z();
+		drawCube();
 	}
 
 	@FXML
 	void zPrime(ActionEvent event) {
-
+		cube.zPrime();
+		drawCube();
+	}
+	
+	@FXML
+	void solve(ActionEvent event) {
+		cube.solve();
+		drawCube();
 	}
 
 	@FXML
